@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <% const rows = Math.floor(12/data.length) %>
+    <div class="container">
+      <div class="row mt-5">
+        <% data.forEach(item => { let temp = item.dataValues %>
+        <div class="col-sm-<%= rows %>">
+          <img src="/public/pict/<%= temp.name %>" alt="" width="100%" />
+          <div class="tengah" style="text-align: center;">
+            <p><%= temp.name %></p>
+            <a href="/transaksi/<%= temp.id %>">
+              <button type="button" class="btn btn-primary">BUY</button>
+            </a>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>
