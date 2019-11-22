@@ -5,6 +5,7 @@ function creatPass(pass) {
   const someOtherPlaintextPassword = 'not_bacon'
 
   var hash = bcrypt.hashSync(myPlaintextPassword, saltRounds)
+
   return hash
 }
 

@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
-const port = 4001
+const port = 3000 || process.env.PORT
+
 const session = require('express-session')
 
 const helpPass = require('./helpers/createPassword')

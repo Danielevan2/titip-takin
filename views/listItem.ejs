@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %> <%- include('partials/navbar') %>
+  <body>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nama user:</th>
+          <th scope="col"><%= user.first_name + user.last_name%></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <td>item yang di beli :</td>
+        <% for(let i = 0; i < user.Items.length; i++) {%>
+
+        <tr>
+          <th scope="row"></th>
+          <td><%= user.Items[i].name %></td>
+          <td>
+            <a href="/transaksi/delete?ItemId=<%= user.Items[i].id %>"
+              >delete</a
+            >
+          </td>
+        </tr>
+
+        <% } %>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" onclick="history.go(-1)">
+      Back
+    </button>
+  </body>
+</html>

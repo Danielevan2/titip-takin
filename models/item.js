@@ -3,8 +3,11 @@ module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model
   const models = sequelize.models // untuk model lain
 
-
-  class Item extends Model {}
+  class Item extends Model {
+    get plusTakin() {
+      return 'ayo Titip ' + this.name + ' sama Takin'
+    }
+  }
   Item.init(
     {
       name: DataTypes.STRING,
@@ -13,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     { sequelize }
   )
   Item.associate = function(models) {
-    // associations can be defined here
+    Item.belongsToMany(models.User, { through: models.user_item })
   }
   return Item
 }

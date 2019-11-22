@@ -14,15 +14,145 @@
     <title>Document</title>
   </head>
   <body>
-    <% const rows = Math.floor(12/data.length) %>
+    <%- include('partials/navbar') %> <% const rows = Math.floor(12/data.length)
+    %> <% if(location === 'paris') { %>
+    <div class="mapouter" style="position: relative;margin-left: 500px;">
+      <div class="gmap_canvas">
+        <iframe
+          width="783"
+          height="225"
+          id="gmap_canvas"
+          src="https://maps.google.com/maps?q=paris&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+        ></iframe
+        ><a href="https://www.divi-discounts.com">un exemple de galerie</a>
+      </div>
+      <style>
+        .mapouter {
+          position: relative;
+          text-align: right;
+          height: 225px;
+          width: 783px;
+        }
+
+        .gmap_canvas {
+          overflow: hidden;
+          background: none !important;
+          height: 225px;
+          width: 783px;
+        }
+      </style>
+    </div>
+    <% } else if(location === 'arab') {%>
+    <div class="mapouter" style="position: relative;margin-left: 500px;">
+      <div class="gmap_canvas">
+        <iframe
+          width="783"
+          height="225"
+          id="gmap_canvas"
+          src="https://maps.google.com/maps?q=arabia&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+        ></iframe
+        ><a href="https://www.embedgooglemap.net">embedgooglemap.net</a>
+      </div>
+      <style>
+        .mapouter {
+          position: relative;
+          text-align: right;
+          height: 225px;
+          width: 783px;
+        }
+
+        .gmap_canvas {
+          overflow: hidden;
+          background: none !important;
+          height: 225px;
+          width: 783px;
+        }
+      </style>
+    </div>
+    <% } else if (location === 'solo') { %>
+    <div class="mapouter" style="position: relative;margin-left: 500px">
+      <div class="gmap_canvas">
+        <iframe
+          width="783"
+          height="225"
+          id="gmap_canvas"
+          src="https://maps.google.com/maps?q=solo&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+        ></iframe
+        ><a href="https://www.embedgooglemap.net">embedgooglemap.net</a>
+      </div>
+      <style>
+        .mapouter {
+          position: relative;
+          text-align: right;
+          height: 225px;
+          width: 783px;
+        }
+
+        .gmap_canvas {
+          overflow: hidden;
+          background: none !important;
+          height: 225px;
+          width: 783px;
+        }
+      </style>
+    </div>
+    <% } else if(location === 'kost') { %>
+    <div class="mapouter" style="position: relative;margin-left: 500px">
+      <div class="gmap_canvas">
+        <iframe
+          width="783"
+          height="225"
+          id="gmap_canvas"
+          src="https://maps.google.com/maps?q=jakarta%20barat&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+        ></iframe
+        ><a href="https://www.embedgooglemap.net">embedgooglemap.net</a>
+      </div>
+      <style>
+        .mapouter {
+          position: relative;
+          text-align: right;
+          height: 225px;
+          width: 783px;
+        }
+
+        .gmap_canvas {
+          overflow: hidden;
+          background: none !important;
+          height: 225px;
+          width: 783px;
+        }
+      </style>
+    </div>
+    <% } %>
+    <h1 style="text-align: center;">TAKIN in <%= location %></h1>
+    <p style="text-align: center;">choose your item</p>
     <div class="container">
       <div class="row mt-5">
         <% data.forEach(item => { let temp = item.dataValues %>
         <div class="col-sm-<%= rows %>">
           <img src="/public/pict/<%= temp.name %>" alt="" width="100%" />
           <div class="tengah" style="text-align: center;">
-            <p><%= temp.name %></p>
-            <a href="/transaksi/<%= temp.id %>">
+            <br />
+            <h1><%= item.plusTakin%></h1>
+            <a
+              href="/transaksi/add?itemId=<%= temp.id %>&userId=<%= userId %>&lokasi=<%= location %>"
+            >
               <button type="button" class="btn btn-primary">BUY</button>
             </a>
           </div>
