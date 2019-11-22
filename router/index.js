@@ -50,17 +50,17 @@ login.post('/register', (req, res) => {
 
 //update
 login.get('/update', (req, res) => {
-  model.findOne({
-    where: {
-      id: req.session.user.id,
-    }
+  model
+    .findOne({
+      where: {
+        id: req.session.user.id,
+      },
     })
-      .then(data => {
-        res.render('update')
-      })
-      .catch(err => {
-        console.log(err)
-      }),
- 
+    .then(data => {
+      res.render('update')
+    })
+    .catch(err => {
+      console.log(err)
+    })
 })
 module.exports = login
